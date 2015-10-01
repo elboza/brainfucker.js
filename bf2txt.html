@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<textarea rows="15" cols="70" id="txtarea"></textarea>
+<button onclick="do_text2bf();">Text to Brainfuck</button> <button>Brainfuck to Text</button>
+<script src="bf.js"></script>
+<script>
+function do_text2bf(){
+	var x=document.getElementById('txtarea');
+	x.value=pretty_bf(x.value);
+}
+</script>
+
+</body>
+</html>
