@@ -31,13 +31,12 @@ function run(code,env){
 	ep=0;
 	if(env==null){
 		xenv=[];
-		xenv[ep]=0;
 	}
 	else{
 		xenv=env.split("");
 	}
 	output="";
-	while(ip++<code.length){
+	while(ip<code.length){
 		if(isNaN(xenv[ep])) xenv[ep]=0;
 		switch(code[ip]){
 			case '+':
@@ -65,35 +64,35 @@ function run(code,env){
 				break;
 			case '[':
 				if(xenv[ep]==0){
-					nest=1;
+					nest=1;ip++;
 					while(nest){
 						if(code[ip]=='[') nest++;
 						if(code[ip]==']') nest--;
 						++ip;
 					}
-					ip-=2;
+					ip--;
 				}
 				break;
 			case ']':
 				if(xenv[ep]!=0){
-					nest=1;ip-=2;
+					nest=1;ip--;
 					while(nest){
 						if(code[ip]==']') nest++;
 						if(code[ip]=='[') nest--;
 						--ip;
 					}
-					++ip;
+					ip++;
 				}
 				break;
 			default:
 				
 		}
+		ip++;
 	}
 	env=xenv.join("");
 	return({"out":output,"env":env});
 }
 function out(code,env){
-	//alert("out");
 	x=run(code,env);
 	return x.out;
 }
