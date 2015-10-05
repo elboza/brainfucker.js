@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
 <head>
+<title>brainfucker.js</title>
 </head>
 <body>
+<h1>brainfucker.js</h1>
 <textarea rows="15" cols="70" id="txtarea"></textarea>
+<p><input type="checkbox" id="ng" /><label for="ng">ng extensions</label></p>
 <button onclick="do_text2bf();">Text to Brainfuck</button> <button onclick="do_bf2text();">Brainfuck to Text</button>
-<script src="bf.js"></script>
+<script src="brainfucker.js"></script>
 <script>
 function do_text2bf(){
 	var x=document.getElementById('txtarea');
@@ -13,7 +16,8 @@ function do_text2bf(){
 }
 function do_bf2text(){
 	var x=document.getElementById('txtarea');
-	x.value=out(x.value,null);
+	var y=document.getElementById('ng');
+	x.value=out(x.value,null,y.checked);
 }
 </script>
 

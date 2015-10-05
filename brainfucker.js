@@ -26,7 +26,9 @@ function pretty_bf(s){
 	r=x.match(/.{1,5}/g);
 	return r.join(' ');
 }
-function run(code,env){
+function run(code,env,ng){
+	if (typeof(ng)==='undefined') ng = false;
+	if (typeof(env)==='undefined') env = null;
 	ip=0;
 	ep=0;
 	if(env==null){
@@ -40,12 +42,11 @@ function run(code,env){
 		if(isNaN(xenv[ep])) xenv[ep]=0;
 		switch(code[ip]){
 			case '+':
-				//xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)+1);
 				xenv[ep]++;
 				break;
 			case '-':
-				//xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)-1);
-				if(xenv[ep]>0) xenv[ep]--;
+				//if(xenv[ep]>0) xenv[ep]--;
+				xenv[ep]--;
 				break;
 			case '>':
 				++ep;//if(ep>=env.length) ep=0;
@@ -60,7 +61,7 @@ function run(code,env){
 				xenv[ep]=prompt("input a character",0);
 				break;
 			case '!':
-				output+=xenv[ep];
+				if(ng) output+=xenv[ep];
 				break;
 			case '[':
 				if(xenv[ep]==0){
@@ -70,7 +71,7 @@ function run(code,env){
 						if(code[ip]==']') nest--;
 						++ip;
 					}
-					ip--;
+					ip-=2;
 				}
 				break;
 			case ']':
@@ -81,7 +82,7 @@ function run(code,env){
 						if(code[ip]=='[') nest--;
 						--ip;
 					}
-					ip++;
+					//ip++;
 				}
 				break;
 			default:
@@ -92,7 +93,7 @@ function run(code,env){
 	env=xenv.join("");
 	return({"out":output,"env":env});
 }
-function out(code,env){
-	x=run(code,env);
+function out(code,env,ng){
+	x=run(code,env,ng);
 	return x.out;
 }
