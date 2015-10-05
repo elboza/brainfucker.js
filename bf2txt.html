@@ -4,19 +4,25 @@
 </head>
 <body>
 <textarea rows="15" cols="70" id="txtarea"></textarea>
-<button onclick="do_text2bf();">Text to Brainfuck</button> <button>Brainfuck to Text</button>
+<button onclick="do_text2bf();">Text to Brainfuck</button> <button onclick="do_bf2text();">Brainfuck to Text</button>
 <script src="bf.js"></script>
 <script>
 function do_text2bf(){
 	var x=document.getElementById('txtarea');
 	x.value=pretty_bf(x.value);
 }
-x=run("+.>.>-.","pippo");
-alert(x.out);
-alert(x.env);
-y=run("+++++ +++++ [>+++ +++++ +++<- ]>++. [-]++ +++++ +++[> +++++ +++++ <-]>+ ++++. [-]++ +++++ +++[> +++++ +++++ +<-]> ++.[- ]++++ +++++ +[>++ +++++ ++++< -]>++ .[-]+ +++++ ++++[ >++++ +++++ ++<-] >+.[- ]","pippo123");
-alert(y.out);
-alert(y.env);
+function do_bf2text(){
+	var x=document.getElementById('txtarea');
+	x.value=out(x.value,null);
+}
+// x=run("++.>.>-.","pippo");
+// alert(x.out);
+// alert(x.env);
+// y=run("+++++ +++++ [>+++ +++++ +++<- ]>++. [-]++ +++++ +++[> +++++ +++++ <-]>+ ++++. [-]++ +++++ +++[> +++++ +++++ +<-]> ++.[- ]++++ +++++ +[>++ +++++ ++++< -]>++ .[-]+ +++++ ++++[ >++++ +++++ ++<-] >+.[- ]",null);
+// alert(y.out);
+// alert(y.env);
+// z=run("!>++!>+++!",null);
+// alert(z.out);
 </script>
 
 </body>

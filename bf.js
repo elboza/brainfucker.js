@@ -30,37 +30,42 @@ function run(code,env){
 	ip=0;
 	ep=0;
 	if(env==null){
-		xenv=[0,0,0,0,0,0,0,0,0,0];
+		xenv=[];
+		xenv[ep]=0;
 	}
 	else{
 		xenv=env.split("");
 	}
 	output="";
-	while(ip<=code.length){
+	while(ip++<code.length){
+		if(isNaN(xenv[ep])) xenv[ep]=0;
 		switch(code[ip]){
 			case '+':
-				xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)+1);
-				//xenv[ep]+=1;
+				//xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)+1);
+				xenv[ep]++;
 				break;
 			case '-':
-				xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)-1);
-				//xenv[ep]-=1;
+				//xenv[ep]=String.fromCharCode(xenv[ep].charCodeAt(0)-1);
+				if(xenv[ep]>0) xenv[ep]--;
 				break;
 			case '>':
-				++ep;if(ep>=env.length) ep=0;
+				++ep;//if(ep>=env.length) ep=0;
 				break;
 			case '<':
-				--ep;if(ep<0) ep=env.length-1;
+				--ep;//if(ep<0) ep=env.length-1;
 				break;
 			case '.':
-				output+=xenv[ep];
+				output+=String.fromCharCode(xenv[ep]);
 				break;
 			case ',':
 				xenv[ep]=prompt("input a character",0);
 				break;
+			case '!':
+				output+=xenv[ep];
+				break;
 			case '[':
 				if(xenv[ep]==0){
-					nest=1;ip++;
+					nest=1;
 					while(nest){
 						if(code[ip]=='[') nest++;
 						if(code[ip]==']') nest--;
@@ -71,7 +76,7 @@ function run(code,env){
 				break;
 			case ']':
 				if(xenv[ep]!=0){
-					nest=1;ip--;
+					nest=1;ip-=2;
 					while(nest){
 						if(code[ip]==']') nest++;
 						if(code[ip]=='[') nest--;
@@ -83,11 +88,12 @@ function run(code,env){
 			default:
 				
 		}
-		ip++;
 	}
 	env=xenv.join("");
 	return({"out":output,"env":env});
 }
-function out(){
-	alert("out");
+function out(code,env){
+	//alert("out");
+	x=run(code,env);
+	return x.out;
 }
