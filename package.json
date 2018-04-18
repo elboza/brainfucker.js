@@ -1,0 +1,26 @@
+{
+  "name": "brainfucker",
+  "version": "0.0.1",
+  "description": "brainfuck JS interpreter for node and browsers",
+  "main": "src/brainfucker.js",
+  "scripts": {
+    "test": "node web/test-cli.js",
+    "web": "mkdir -p web && browserify src/bf-loader.js -o web/brainfucker.js",
+    "postinstall": "npm run web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://elboza@bitbucket.org/elboza/brainfucker.js.git"
+  },
+  "keywords": [
+    "brainfuck",
+    "js"
+  ],
+  "author": "Fernando Iazeolla",
+  "license": "Beerware",
+  "homepage": "https://bitbucket.org/elboza/brainfucker.js#readme",
+  "dependencies": {
+    "browserify": "^16.2.0",
+    "uglify-js": "^3.3.21"
+  }
+}
