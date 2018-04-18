@@ -48,7 +48,6 @@ function run(code,env,ng,reverse){
 	while(ip<code.length){
 		if(isNaN(xenv[ep])) xenv[ep]=0;
 		var instr=trr(code[ip],reverse);
-		//alert(instr);
 		switch(trr(code[ip],reverse)){
 			case '+':
 				xenv[ep]++;
@@ -107,7 +106,6 @@ function out(code,env,ng,reverse){
 	return x.out;
 }
 function process_bf(elem){
-	//alert(elem.innerText);
 	var code=elem.innerText;
 	var data='';
 	var reverse=false;
@@ -128,7 +126,6 @@ function process_bf(elem){
      if(oenv) elem.innerHTML=ret.env; else elem.innerHTML=ret.out;
 }
 function loader(){
-	//alert("loader");
 	var x=document.getElementsByTagName('brainfuck');
 	for (var i = 0, len = x.length; i < len; i++) {
   	process_bf(x[i]);
