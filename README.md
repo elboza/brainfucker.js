@@ -25,7 +25,7 @@ $ npm install
 ### brainfuck.js as a node module
 
 ```
-var bf=require('../src/brainfucker.js');
+var bf=require('brainfucker.js');
 
 let x=bf.run('+++![>+<-]>!',null,true);
 console.log(x.out);
