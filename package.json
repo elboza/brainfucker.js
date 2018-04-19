@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://elboza@bitbucket.org/elboza/brainfucker.js.git"
+    "url": "git+https://github.com/elboza/brainfuck.js.git"
   },
   "keywords": [
     "brainfuck",
@@ -19,7 +19,7 @@
   ],
   "author": "Fernando Iazeolla",
   "license": "Beerware",
-  "homepage": "https://bitbucket.org/elboza/brainfucker.js#readme",
+  "homepage": "https://github.com/elboza/brainfuck.js",
   "dependencies": {
     "browserify": "^16.2.0",
     "uglify-es": "^3.3.9"
