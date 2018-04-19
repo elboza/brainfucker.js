@@ -95,4 +95,5 @@ Or you can use brainfucker.js as in the node module by refering to its class.
             (__)\       )\/\
                 ||----w |
                 ||     ||
+
 ```
