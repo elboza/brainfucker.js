@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "brainfuck JS interpreter for node and browsers",
   "main": "src/brainfucker.js",
+  "browser": "web/brainfucker.min.js",
   "scripts": {
     "test": "node web/test-cli.js",
     "web": "mkdir -p web && browserify src/bf-loader.js -o web/brainfucker.js && uglifyjs web/brainfucker.js -c -m -o web/brainfucker.min.js",
