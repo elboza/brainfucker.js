@@ -21,6 +21,7 @@
   "license": "Beerware",
   "homepage": "https://bitbucket.org/elboza/brainfucker.js#readme",
   "dependencies": {
-    "browserify": "^16.2.0"
+    "browserify": "^16.2.0",
+    "uglify-es": "^3.3.9"
   }
 }
