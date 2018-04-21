@@ -75,6 +75,11 @@ hhj
 ---]<->+[<<>?
 </brainfuck>
 <script src="brainfucker.min.js"></script>
+or
+<script>
+var x=new BrainFuckerJS();
+var a=x.run('+++!',null,true);
+console.log(a.out);
 </body>
 </html>
 ```
