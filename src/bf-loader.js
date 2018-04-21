@@ -1,6 +1,7 @@
 var bf=require('./brainfucker.js');
 
 function process_bf(elem){
+  //++var bf=new BrainFuckerJS();
 	let code=elem.innerText;
 	var data='';
 	var reverse=false;

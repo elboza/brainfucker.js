@@ -1,12 +1,12 @@
 {
   "name": "brainfucker.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "brainfuck JS interpreter for node and browsers",
   "main": "src/brainfucker.js",
   "browser": "web/brainfucker.min.js",
   "scripts": {
     "test": "node web/test-cli.js",
-    "web": "mkdir -p web && browserify src/bf-loader.js -o web/brainfucker.js && uglifyjs web/brainfucker.js -c -m -o web/brainfucker.min.js",
+    "web": "mkdir -p web && cat src/brainfucker.js src/bf-loader.js |grep -v require |grep -v exports | sed -e 's/\\/\\/\\+\\+//' > web/brainfucker.js && uglifyjs web/brainfucker.js -c -m -o web/brainfucker.min.js",
     "postinstall": "npm run web"
   },
   "repository": {
@@ -21,7 +21,6 @@
   "license": "Beerware",
   "homepage": "https://github.com/elboza/brainfuck.js",
   "dependencies": {
-    "browserify": "^16.2.0",
     "uglify-es": "^3.3.9"
   }
 }
