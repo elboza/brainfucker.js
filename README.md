@@ -2,7 +2,7 @@
 
 ## a brainfuck interpreter for nodejs and browsers.
 
-brainfuck.js is a powerful interpreter for brainfuck with many features:
+brainfucker.js is a powerful interpreter for brainfuck with many features:
 
 - `ng` enables a superset of brainfuck with the addition of two symbols( `!` and `?` ) to write and read a number from input.
 - `reversefuck` switch the interpreter to reversefuck mode where the semantic of all the commands are inverted
@@ -14,7 +14,7 @@ It can be used as a node module or included directly into a web page.
 ## install
 
 ```
-$ npm install brainfuck.js
+$ npm install brainfucker.js
 ```
 or
 ```
@@ -22,7 +22,7 @@ $ git clone <this repo>
 $ npm install
 ```
 
-### brainfuck.js as a node module
+### brainfucker.js as a node module
 
 ```
 var bf=require('brainfucker.js');
@@ -37,7 +37,7 @@ the `run` parameters are (in order):
 - the ng expensions (optional)
 - the reversefuck mode (optional)
 
-### brainfuck.js into a web page
+### brainfucker.js into a web page
 
 ```
 $ npm install
@@ -58,24 +58,24 @@ and then just copy the file to your web project and link to it:
 you can put your brainfuck code into a brainfuck tag. All the brainfuck tags will be processed:
 ```
 <html>
-	<head>
-	</head>
-	<body>
-	pippo<br>
-	<brainfuck ng>
-		+++[>+<-]>!
-	hhj
-	</brainfuck>
+<head>
+</head>
+<body>
+pippo<br>
+<brainfuck ng>
++++[>+<-]>!
+hhj
+</brainfuck>
 <br>
-	<brainfuck ng data="fff" oenv>
-		>+
-	</brainfuck>
+<brainfuck ng data="fff" oenv>
+>+
+</brainfuck>
 <br>
-	<brainfuck ng reversefuck>
-	---]<->+[<<>?
-	</brainfuck>
-	<script src="brainfucker.min.js"></script>
-	</body>
+<brainfuck ng reversefuck>
+---]<->+[<<>?
+</brainfuck>
+<script src="brainfucker.min.js"></script>
+</body>
 </html>
 ```
 You can pass the oprions as a tag arguments.
